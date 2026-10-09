@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John | AI &amp; Data Science Student</title>
+  <meta name="description" content="Portfolio of John, a first-year AI and Data Science student at Info Institute." />
+  <meta name="theme-color" content="#08070f" />
+
+  <!-- Tiny inline flag: lets CSS hide "reveal" elements ONLY when JavaScript is running,
+       so the page stays fully readable if JS fails to load. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Fonts (optional): if you are offline, the CSS falls back to system fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Scroll progress bar (width is driven by script.js) -->
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+  <!-- Decorative background: particles + floating gradient orbs + cursor glow -->
+  <canvas id="particles" class="particles" aria-hidden="true"></canvas>
+  <div class="orbs" aria-hidden="true">
+    <span class="orb orb--lime"></span>
+    <span class="orb orb--purple"></span>
+    <span class="orb orb--purple-small"></span>
+  </div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__brand" href="#home" aria-label="John, back to top">John<span class="nav__brand-dot">.</span></a>
+
+      <button class="nav__toggle" id="navToggle" type="button"
+              aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav__bar"></span>
+        <span class="nav__bar"></span>
+        <span class="nav__bar"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a class="nav__link" href="#home">Home</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#work">My Work</a></li>
+        <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#education">Education</a></li>
+        <li><a class="nav__link nav__link--cta" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- ============ HOME ============ -->
+    <section class="section hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <h1 class="hero__title" id="hero-title">
+          <span class="line"><span class="line__inner">Hi, I'm</span></span>
+          <span class="line"><span class="line__inner hero__name">John</span></span>
+        </h1>
+
+        <!-- Typing animation. The full text is in aria-label so screen readers read it at once. -->
+        <p class="hero__headline" aria-label="AI &amp; Data Science Student | Future Innovator.">
+          <span id="typed" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero__text">
+          I'm learning how to turn data and code into things that are useful, creative and fun to use.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#work">View my work</a>
+          <a class="btn btn--ghost" href="#contact">Contact me</a>
+        </div>
+
+        <ul class="chips" aria-label="Quick facts">
+          <li class="chip">First-year student</li>
+          <li class="chip">Info Institute</li>
+          <li class="chip">AI &amp; Data Science</li>
+        </ul>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="Scroll to About section">
+        <span class="scroll-hint__mouse"></span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title" id="about-title">About me</h2>
+          <p class="section__sub">A quick introduction.</p>
+        </header>
+
+        <div class="about">
+          <div class="glass about__card reveal">
+            <!-- EDIT: rewrite this in your own words -->
+            <p>
+              I'm John, a first-year Artificial Intelligence and Data Science student at Info Institute.
+              I'm just getting started, and I enjoy learning by building small things and seeing how they work.
+            </p>
+            <p>
+              I'm curious about how machines learn from data, and I like mixing that curiosity with design,
+              so what I make feels good to look at as well as to use.
+            </p>
+          </div>
+
+          <ul class="about__list reveal" style="--delay: 120ms">
+            <li class="glass about__item">
+              <h3>Studies</h3>
+              <p>AI and Data Science, learning the foundations step by step.</p>
+            </li>
+            <li class="glass about__item">
+              <h3>Interests</h3>
+              <p>Python, machine learning, data stories and web design.</p>
+            </li>
+            <li class="glass about__item">
+              <h3>Creativity</h3>
+              <p>Clean interfaces, bold colours and playful details.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MY WORK ============ -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title" id="work-title">My work</h2>
+          <p class="section__sub">Sample cards are placeholders. Swap each one for a real project.</p>
+        </header>
+
+        <ul class="projects">
+          <!-- ===== PROJECT CARD TEMPLATE: copy a whole <li> to add another project ===== -->
+          <li class="reveal" style="--delay: 0ms">
+            <article class="project tilt">
+              <span class="project__tag">Placeholder</span>
+              <h3 class="project__title">Student Grade Predictor</h3>
+              <p class="project__text">
+                A beginner machine learning idea: use a small dataset of study habits to predict exam scores
+                and see which factors matter most.
+              </p>
+              <ul class="tech" aria-label="Technologies used">
+                <li>Python</li><li>Pandas</li><li>scikit-learn</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/YOUR-USERNAME/your-repo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://your-live-demo-link.example" target="_blank" rel="noopener noreferrer">Live demo</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="reveal" style="--delay: 100ms">
+            <article class="project tilt">
+              <span class="project__tag">Placeholder</span>
+              <h3 class="project__title">Campus Data Dashboard</h3>
+              <p class="project__text">
+                Explore an open dataset and turn it into clear charts that tell a story, built in a notebook.
+              </p>
+              <ul class="tech" aria-label="Technologies used">
+                <li>Python</li><li>Matplotlib</li><li>Jupyter</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/YOUR-USERNAME/your-repo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://your-live-demo-link.example" target="_blank" rel="noopener noreferrer">Live demo</a>
+              </div>
+            </article>
+          </li>
+
+          <li class="reveal" style="--delay: 200ms">
+            <article class="project tilt">
+              <span class="project__tag">Placeholder</span>
+              <h3 class="project__title">Interactive Quiz App</h3>
+              <p class="project__text">
+                A small web app that asks questions, tracks the score and shows feedback, made with plain
+                HTML, CSS and JavaScript.
+              </p>
+              <ul class="tech" aria-label="Technologies used">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/YOUR-USERNAME/your-repo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://your-live-demo-link.example" target="_blank" rel="noopener noreferrer">Live demo</a>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title" id="skills-title">Skills I'm learning</h2>
+          <p class="section__sub">I'm early in my journey, so these show how far I am today, not where I'll stop.</p>
+        </header>
+
+        <!-- data-level = how full the bar gets (0 to 100). Change the number and the stage label. -->
+        <ul class="skills">
+          <li class="glass skill reveal" data-level="55">
+            <div class="skill__top"><span class="skill__name">HTML</span><span class="skill__stage">Practicing</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+          <li class="glass skill reveal" data-level="50" style="--delay: 60ms">
+            <div class="skill__top"><span class="skill__name">CSS</span><span class="skill__stage">Practicing</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+          <li class="glass skill reveal" data-level="35" style="--delay: 120ms">
+            <div class="skill__top"><span class="skill__name">JavaScript</span><span class="skill__stage">Learning</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+          <li class="glass skill reveal" data-level="40" style="--delay: 180ms">
+            <div class="skill__top"><span class="skill__name">Python</span><span class="skill__stage">Learning</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+          <li class="glass skill reveal" data-level="25" style="--delay: 240ms">
+            <div class="skill__top"><span class="skill__name">AI</span><span class="skill__stage">Exploring</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+          <li class="glass skill reveal" data-level="20" style="--delay: 300ms">
+            <div class="skill__top"><span class="skill__name">Machine Learning</span><span class="skill__stage">Exploring</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+          <li class="glass skill reveal" data-level="25" style="--delay: 360ms">
+            <div class="skill__top"><span class="skill__name">Data Science</span><span class="skill__stage">Exploring</span></div>
+            <div class="skill__track" role="presentation"><div class="skill__fill"></div></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title" id="education-title">Education</h2>
+        </header>
+
+        <article class="glass edu reveal">
+          <span class="edu__status">Currently studying</span>
+          <h3 class="edu__title">Artificial Intelligence and Data Science</h3>
+          <p class="edu__school">Info Institute</p>
+          <p class="edu__text">First-year student, building a strong base in programming, data and AI.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2 class="section__title" id="contact-title">Let's connect</h2>
+          <p class="section__sub">Say hi, ask a question or share an idea.</p>
+        </header>
+
+        <!-- EDIT: replace every YOUR-... value with your real details -->
+        <ul class="contact">
+          <li class="reveal">
+            <a class="contact__link" href="mailto:your.email@example.com">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span class="contact__name">Email</span>
+              <span class="contact__hint">Send a message</span>
+            </a>
+          </li>
+          <li class="reveal" style="--delay: 80ms">
+            <a class="contact__link" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              <span class="contact__name">GitHub</span>
+              <span class="contact__hint">See my code</span>
+            </a>
+          </li>
+          <li class="reveal" style="--delay: 160ms">
+            <a class="contact__link" href="https://www.linkedin.com/in/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span class="contact__name">LinkedIn</span>
+              <span class="contact__hint">Connect with me</span>
+            </a>
+          </li>
+          <li class="reveal" style="--delay: 240ms">
+            <a class="contact__link" href="https://www.instagram.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span class="contact__name">Instagram</span>
+              <span class="contact__hint">Follow along</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year">2026</span> John. Built with HTML, CSS and JavaScript.</p>
+    <a href="#top">Back to top</a>
+  </footer>
+</body>
+</html>
